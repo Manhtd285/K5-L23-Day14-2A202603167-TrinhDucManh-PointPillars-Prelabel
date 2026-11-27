@@ -14,18 +14,31 @@ Ghi **trước** khi chạy `scripts/pp_sweep.py`, rồi commit và push ngay (l
 
 | Cấu hình | Xóa | Thêm | Sửa | Chi phí |
 |---|---:|---:|---:|---:|
-| Gốc | | | | |
-| `best_config.json` | | | | |
+| Gốc | 61 | 9 | 4 | 29.3 |
+| `best_config.json` | 15 | 16 | 3 | 22.0 |
 
-- Tham số đã đổi trong `best_config.json`: ...
-- Kết quả leave-one-out (dán các dòng `scripts/pp_sweep.py` in ra): ...
+- Tham số đã đổi trong `best_config.json`: `score_thr` 0.1 → 0.4 (`min_points` giữ 0; với `score_thr=0.4`, `min_points` = 0/5/10 cho cùng chi phí 22.0).
+- Kết quả leave-one-out (dán các dòng `scripts/pp_sweep.py` in ra):
+
+```
+s01f54: cấu hình chọn {'score_thr': '0.4', 'min_points': '0'} → 12.8 (tốt nhất có thể 11.2)
+s03f53: cấu hình chọn {'score_thr': '0.3', 'min_points': '10'} → 8.1 (tốt nhất có thể 6.4)
+s04f31: cấu hình chọn {'score_thr': '0.3', 'min_points': '10'} → 3.2 (tốt nhất có thể 2.6)
+```
 - Cấu hình có ổn định trên từng frame không? Vì sao tôi vẫn chọn (hoặc không chọn) nó: ...
 
 ## 3. Trước/sau (bước 8)
 
-![so sánh](../../d14_2A202603167/compare/<frame>.jpg)
+![so sánh](../../d14_2A202603167/compare/s03f53.jpg)
 
-- `scripts/pp_compare.py` báo giảm (hoặc tăng) ...% công sửa trên tập A.
+| Frame | Chi phí gốc | `best_config.json` |
+|---|---:|---:|
+| s01f54 | 12.7 | 12.8 |
+| s03f53 | 12.6 | 6.6 |
+| s04f31 | 4.0 | 2.6 |
+| **Tổng** | **29.3** | **22.0** |
+
+- `scripts/pp_compare.py` báo giảm 25% công sửa trên tập A (3 frame, theo công thức chi phí của lab).
 - Dự đoán ở mục 1 đúng hay sai? Giải thích bằng số box xóa/thêm/sửa: ...
 
 ## 4. Tập B

@@ -47,7 +47,9 @@ Số đo từ `scripts/pp_prelabel.py --frames d14_2A202603167/frames_B.txt --co
 
 | Xóa | Thêm | Sửa | Chi phí |
 |---:|---:|---:|---:|
-| | | | |
+| 84 | 18 | 3 | 44.7 |
+
+12 frame có nhãn: GT 136 box, dự đoán 202 box, khớp 118. Lớp trong `pred_B.json`: Car 172, Cyclist 28, Pedestrian 2. Lớp trong `ref_B.json`: Car 114, Cyclist 10, Truck 9, Bus 2, Pedestrian 1.
 
 - Loại box tốn công sửa nhất ở tập B: ...
 
